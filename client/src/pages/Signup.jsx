@@ -1,0 +1,112 @@
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Navigate } from 'react-router-dom';
+import { signupUser, clearError } from '../redux/authSlice';
+import { HiUser, HiMail, HiLockClosed, HiArrowRight } from 'react-icons/hi';
+
+export default function Signup() {
+    const [form, setForm] = useState({ name: '', email: '', password: '', confirmPassword: '' });
+    const [localError, setLocalError] = useState('');
+    const { user, loading, error } = useSelector(state => state.auth);
+    const dispatch = useDispatch();
+
+    if (user) return <Navigate to="/dashboard" replace />;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setLocalError('');
+        if (form.password !== form.confirmPassword) {
+            setLocalError('Passwords do not match');
+            return;
+        }
+        if (form.password.length < 6) {
+            setLocalError('Password must be at least 6 characters');
+            return;
+        }
+        dispatch(clearError());
+        dispatch(signupUser({ name: form.name, email: form.email, password: form.password }));
+    };
+
+    const displayError = localError || error;
+
+    return (
+        <div style={{
+            minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: 'var(--bg-primary)', padding: 24, position: 'relative', overflow: 'hidden'
+        }}>
+            <div style={{
+                position: 'absolute', width: 400, height: 400, borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(236,72,153,0.2), transparent)',
+                top: -100, left: -100, filter: 'blur(60px)'
+            }} />
+            <div style={{
+                position: 'absolute', width: 300, height: 300, borderRadius: '50%',
+                background: 'radial-gradient(circle, rgba(168,85,247,0.2), transparent)',
+                bottom: -50, right: -50, filter: 'blur(60px)'
+            }} />
+
+            <div className="glass-card animate-fade-in-up" style={{ maxWidth: 440, width: '100%', padding: '40px 36px' }}>
+                <div style={{ textAlign: 'center', marginBottom: 32 }}>
+                    <div style={{
+                        width: 56, height: 56, margin: '0 auto 16px',
+                        background: 'linear-gradient(135deg, var(--accent), var(--primary))',
+                        borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        fontSize: 24, fontWeight: 700, color: 'white'
+                    }}>AI</div>
+                    <h1 style={{ fontSize: '1.8rem', fontWeight: 700 }}>Create account</h1>
+                    <p style={{ color: 'var(--text-secondary)', marginTop: 4 }}>Start your interview preparation journey</p>
+                </div>
+
+                {displayError && (
+                    <div style={{
+                        background: 'rgba(239,68,68,0.1)', border: '1px solid rgba(239,68,68,0.3)',
+                        borderRadius: 12, padding: '12px 16px', marginBottom: 20, color: '#ef4444', fontSize: '0.9rem'
+                    }}>{displayError}</div>
+                )}
+
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                    <div>
+                        <label style={{ fontSize: '0.85rem', fontWeight: 600, marginBottom: 6, display: 'block', color: 'var(--text-secondary)' }}>Full Name</label>
+                        <div style={{ position: 'relative' }}>
+                            <HiUser style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
+                            <input className="input-field" type="text" placeholder="John Doe" style={{ paddingLeft: 40 }}
+                                value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
+                        </div>
+                    </div>
+                    <div>
+                        <label style={{ fontSize: '0.85rem', fontWeight: 600, marginBottom: 6, display: 'block', color: 'var(--text-secondary)' }}>Email</label>
+                        <div style={{ position: 'relative' }}>
+                            <HiMail style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
+                            <input className="input-field" type="email" placeholder="you@example.com" style={{ paddingLeft: 40 }}
+                                value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
+                        </div>
+                    </div>
+                    <div>
+                        <label style={{ fontSize: '0.85rem', fontWeight: 600, marginBottom: 6, display: 'block', color: 'var(--text-secondary)' }}>Password</label>
+                        <div style={{ position: 'relative' }}>
+                            <HiLockClosed style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
+                            <input className="input-field" type="password" placeholder="••••••••" style={{ paddingLeft: 40 }}
+                                value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} required />
+                        </div>
+                    </div>
+                    <div>
+                        <label style={{ fontSize: '0.85rem', fontWeight: 600, marginBottom: 6, display: 'block', color: 'var(--text-secondary)' }}>Confirm Password</label>
+                        <div style={{ position: 'relative' }}>
+                            <HiLockClosed style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
+                            <input className="input-field" type="password" placeholder="••••••••" style={{ paddingLeft: 40 }}
+                                value={form.confirmPassword} onChange={e => setForm({ ...form, confirmPassword: e.target.value })} required />
+                        </div>
+                    </div>
+                    <button className="btn-primary" type="submit" disabled={loading}
+                        style={{ width: '100%', justifyContent: 'center', marginTop: 8, padding: '14px' }}>
+                        {loading ? <div className="spinner" style={{ width: 20, height: 20, borderWidth: 2 }} /> : <>Create Account <HiArrowRight /></>}
+                    </button>
+                </form>
+
+                <p style={{ textAlign: 'center', marginTop: 24, color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
+                    Already have an account? <Link to="/login" style={{ color: 'var(--primary-light)', textDecoration: 'none', fontWeight: 600 }}>Sign in</Link>
+                </p>
+            </div>
+        </div>
+    );
+}
