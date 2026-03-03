@@ -72,7 +72,7 @@ export default function CompanyList() {
                         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 12 }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                                 {company.logoUrl ? (
-                                    <img src={company.logoUrl} alt={company.name} style={{ width: 48, height: 48, objectFit: 'contain', background: 'white', borderRadius: 8, padding: 4 }} />
+                                    <img src={company.logoUrl} alt={company.name} style={{ width: 48, height: 48, objectFit: 'contain', background: 'white', borderRadius: 8, padding: 4, filter: 'grayscale(100%) opacity(0.8)' }} />
                                 ) : (
                                     <div style={{ width: 48, height: 48, borderRadius: 12, background: 'var(--bg-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
                                         <HiOfficeBuilding style={{ color: 'var(--primary-light)' }} />

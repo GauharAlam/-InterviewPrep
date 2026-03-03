@@ -56,7 +56,7 @@ export default function CompanyDetail() {
             {/* Header */}
             <div className="glass-card" style={{ marginBottom: 32, padding: '32px', display: 'flex', gap: 24, alignItems: 'center', flexWrap: 'wrap' }}>
                 {company.logoUrl ? (
-                    <img src={company.logoUrl} alt={company.name} style={{ width: 80, height: 80, objectFit: 'contain', background: 'white', borderRadius: 16, padding: 8 }} />
+                    <img src={company.logoUrl} alt={company.name} style={{ width: 80, height: 80, objectFit: 'contain', background: 'white', borderRadius: 16, padding: 8, filter: 'grayscale(100%) opacity(0.8)' }} />
                 ) : (
                     <div style={{ width: 80, height: 80, borderRadius: 16, background: '#333', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', fontWeight: 800, color: 'white' }}>
                         {company.name.charAt(0).toUpperCase()}
@@ -124,7 +124,7 @@ export default function CompanyDetail() {
                                     <p style={{ fontWeight: 500, fontSize: '1.05rem', marginBottom: 12, lineHeight: 1.5 }}>{q.question}</p>
                                     <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
                                         <span className="chip" style={{ fontSize: '0.75rem', background: 'var(--bg-card)' }}>Role: {q.role}</span>
-                                        <span className="chip" style={{ fontSize: '0.75rem', background: q.frequency === 'High' ? 'rgba(239,68,68,0.1)' : 'var(--bg-card)', color: q.frequency === 'High' ? '#ef4444' : 'var(--text-secondary)' }}>
+                                        <span className="chip" style={{ fontSize: '0.75rem', background: q.frequency === 'High' ? 'rgba(255,255,255,0.05)' : 'var(--bg-card)', color: q.frequency === 'High' ? '#ddd' : 'var(--text-secondary)' }}>
                                             {q.frequency} Frequency
                                         </span>
                                     </div>

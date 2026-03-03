@@ -34,16 +34,7 @@ export default function Signup() {
             minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
             background: 'var(--bg-primary)', padding: 24, position: 'relative', overflow: 'hidden'
         }}>
-            <div style={{
-                position: 'absolute', width: 400, height: 400, borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(236,72,153,0.2), transparent)',
-                top: -100, left: -100, filter: 'blur(60px)'
-            }} />
-            <div style={{
-                position: 'absolute', width: 300, height: 300, borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(168,85,247,0.2), transparent)',
-                bottom: -50, right: -50, filter: 'blur(60px)'
-            }} />
+            {/* Background elements removed for minimal theme */}
 
             <div className="glass-card animate-fade-in-up" style={{ maxWidth: 440, width: '100%', padding: '40px 36px' }}>
                 <div style={{ textAlign: 'center', marginBottom: 32 }}>

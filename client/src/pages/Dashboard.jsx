@@ -67,8 +67,8 @@ export default function Dashboard() {
     const scoreCards = [
         { label: 'Resume Score', value: stats?.resumeScore || 0, icon: <HiDocumentText />, color: '#aaa', link: '/resume' },
         { label: 'Coding Score', value: stats?.codingScore || 0, icon: <HiCode />, color: '#777', link: '/coding' },
-        { label: 'Communication', value: stats?.communicationScore || 0, icon: <HiMicrophone />, color: '#22d3ee', link: '/voice' },
-        { label: 'Overall Score', value: stats?.overallScore || 0, icon: <HiLightningBolt />, color: '#fbbf24', link: '#' },
+        { label: 'Communication', value: stats?.communicationScore || 0, icon: <HiMicrophone />, color: '#888', link: '/voice' },
+        { label: 'Overall Score', value: stats?.overallScore || 0, icon: <HiLightningBolt />, color: '#bbb', link: '#' },
     ];
 
     return (
@@ -113,7 +113,7 @@ export default function Dashboard() {
                             <PolarGrid stroke="var(--border)" />
                             <PolarAngleAxis dataKey="subject" tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} />
                             <PolarRadiusAxis domain={[0, 100]} tick={{ fill: 'var(--text-secondary)', fontSize: 10 }} />
-                            <Radar name="Score" dataKey="score" stroke="#a855f7" fill="#a855f7" fillOpacity={0.3} strokeWidth={2} />
+                            <Radar name="Score" dataKey="score" stroke="#aaa" fill="#aaa" fillOpacity={0.3} strokeWidth={2} />
                         </RadarChart>
                     </ResponsiveContainer>
                 </div>
@@ -128,7 +128,7 @@ export default function Dashboard() {
                                 <XAxis dataKey="name" tick={{ fill: 'var(--text-secondary)', fontSize: 11 }} />
                                 <YAxis domain={[0, 100]} tick={{ fill: 'var(--text-secondary)', fontSize: 11 }} />
                                 <Tooltip contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8 }} />
-                                <Line type="monotone" dataKey="score" stroke="#ec4899" strokeWidth={2} dot={{ fill: '#777' }} />
+                                <Line type="monotone" dataKey="score" stroke="#777" strokeWidth={2} dot={{ fill: '#777' }} />
                             </LineChart>
                         </ResponsiveContainer>
                     ) : (
@@ -180,8 +180,8 @@ export default function Dashboard() {
                                 }}>
                                     <span style={{
                                         padding: '2px 8px', borderRadius: 6, fontSize: '0.7rem', fontWeight: 600, flexShrink: 0,
-                                        background: item.priority === 'high' ? 'rgba(239,68,68,0.15)' : item.priority === 'medium' ? 'rgba(245,158,11,0.15)' : 'rgba(16,185,129,0.15)',
-                                        color: item.priority === 'high' ? '#ef4444' : item.priority === 'medium' ? '#f59e0b' : '#999'
+                                        background: item.priority === 'high' ? 'rgba(255,255,255,0.08)' : item.priority === 'medium' ? 'rgba(255,255,255,0.05)' : 'rgba(255,255,255,0.02)',
+                                        color: item.priority === 'high' ? '#ddd' : item.priority === 'medium' ? '#bbb' : '#999'
                                     }}>{item.priority}</span>
                                     <div>
                                         <p style={{ fontWeight: 600, fontSize: '0.9rem' }}>{item.area}</p>

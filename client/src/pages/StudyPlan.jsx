@@ -24,11 +24,11 @@ const SKILL_OPTIONS = [
 ];
 
 const TASK_COLORS = {
-    theory: { bg: 'rgba(168,85,247,0.12)', border: 'rgba(168,85,247,0.3)', color: '#a855f7', icon: '📖' },
-    practice: { bg: 'rgba(34,211,238,0.12)', border: 'rgba(34,211,238,0.3)', color: '#22d3ee', icon: '💻' },
-    project: { bg: 'rgba(236,72,153,0.12)', border: 'rgba(236,72,153,0.3)', color: '#ec4899', icon: '🛠️' },
-    mock: { bg: 'rgba(251,191,36,0.12)', border: 'rgba(251,191,36,0.3)', color: '#aaa', icon: '🎤' },
-    revision: { bg: 'rgba(34,197,94,0.12)', border: 'rgba(34,197,94,0.3)', color: '#666', icon: '🔄' },
+    theory: { bg: 'rgba(255,255,255,0.05)', border: 'rgba(255,255,255,0.1)', color: '#bbb', icon: '📖' },
+    practice: { bg: 'rgba(255,255,255,0.04)', border: 'rgba(255,255,255,0.1)', color: '#aaa', icon: '💻' },
+    project: { bg: 'rgba(255,255,255,0.03)', border: 'rgba(255,255,255,0.1)', color: '#999', icon: '🛠️' },
+    mock: { bg: 'rgba(255,255,255,0.02)', border: 'rgba(255,255,255,0.1)', color: '#888', icon: '🎤' },
+    revision: { bg: 'rgba(255,255,255,0.01)', border: 'rgba(255,255,255,0.1)', color: '#777', icon: '🔄' },
 };
 
 export default function StudyPlanPage() {
@@ -276,8 +276,8 @@ export default function StudyPlanPage() {
                                     <button key={skill} onClick={() => toggleSkill(skill)} style={{
                                         padding: '6px 14px', borderRadius: 999, fontSize: '0.8rem', fontWeight: 500, cursor: 'pointer',
                                         border: `1px solid ${selectedSkills.includes(skill) ? 'var(--primary)' : 'var(--border)'}`,
-                                        background: selectedSkills.includes(skill) ? 'rgba(168,85,247,0.15)' : 'var(--bg-primary)',
-                                        color: selectedSkills.includes(skill) ? 'var(--primary-light)' : 'var(--text-secondary)',
+                                        background: selectedSkills.includes(skill) ? 'rgba(255,255,255,0.08)' : 'var(--bg-primary)',
+                                        color: selectedSkills.includes(skill) ? '#fff' : 'var(--text-secondary)',
                                         transition: 'all 0.2s'
                                     }}>
                                         {selectedSkills.includes(skill) ? '✓ ' : ''}{skill}
@@ -286,7 +286,7 @@ export default function StudyPlanPage() {
                             </div>
 
                             {interviewDate && (
-                                <div style={{ padding: '12px 16px', background: 'rgba(168,85,247,0.08)', borderRadius: 10, marginBottom: 16, fontSize: '0.85rem' }}>
+                                <div style={{ padding: '12px 16px', background: 'rgba(255,255,255,0.05)', borderRadius: 10, marginBottom: 16, fontSize: '0.85rem' }}>
                                     📅 <strong>{daysUntil(interviewDate)} days</strong> until your interview • <strong>{hoursPerDay}h/day</strong> = <strong>{daysUntil(interviewDate) * hoursPerDay}h</strong> total study time
                                 </div>
                             )}
@@ -343,7 +343,7 @@ export default function StudyPlanPage() {
 
                 {/* Company Tips */}
                 {plan?.companyTips?.length > 0 && (
-                    <div className="glass-card" style={{ marginBottom: 20, background: 'rgba(251,191,36,0.06)', borderColor: 'rgba(251,191,36,0.2)' }}>
+                    <div className="glass-card" style={{ marginBottom: 20, background: 'rgba(255,255,255,0.02)', borderColor: '#333' }}>
                         <h3 style={{ fontSize: '0.95rem', fontWeight: 600, marginBottom: 10, color: '#aaa' }}>
                             <HiLightBulb style={{ display: 'inline', verticalAlign: 'middle', marginRight: 6 }} />
                             Company Tips — {activePlan.targetCompany}
@@ -367,8 +367,8 @@ export default function StudyPlanPage() {
                                 return (
                                     <div key={i} style={{
                                         padding: '10px 16px', borderRadius: 10, fontSize: '0.8rem',
-                                        background: reached ? 'rgba(34,197,94,0.1)' : 'var(--bg-primary)',
-                                        border: `1px solid ${reached ? 'rgba(34,197,94,0.3)' : 'var(--border)'}`,
+                                        background: reached ? 'rgba(255,255,255,0.05)' : 'var(--bg-primary)',
+                                        border: `1px solid ${reached ? '#444' : 'var(--border)'}`,
                                         opacity: reached ? 1 : 0.7
                                     }}>
                                         <span style={{ fontWeight: 600, color: reached ? '#666' : 'var(--text-primary)' }}>
@@ -391,7 +391,7 @@ export default function StudyPlanPage() {
                                 style={{
                                     padding: '16px 20px', cursor: 'pointer',
                                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                                    background: expandedWeeks[wi] ? 'rgba(168,85,247,0.06)' : 'transparent'
+                                    background: expandedWeeks[wi] ? 'rgba(255,255,255,0.03)' : 'transparent'
                                 }}>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                                     {expandedWeeks[wi] ? <HiChevronDown style={{ color: 'var(--primary-light)' }} /> : <HiChevronRight />}
@@ -417,8 +417,8 @@ export default function StudyPlanPage() {
                                         return (
                                             <div key={di} style={{
                                                 borderRadius: 10, overflow: 'hidden',
-                                                border: `1px solid ${isToday ? 'rgba(168,85,247,0.4)' : done ? 'rgba(34,197,94,0.3)' : 'var(--border)'}`,
-                                                background: isToday ? 'rgba(168,85,247,0.05)' : done ? 'rgba(34,197,94,0.03)' : 'transparent'
+                                                border: `1px solid ${isToday ? '#555' : done ? '#333' : 'var(--border)'}`,
+                                                background: isToday ? 'rgba(255,255,255,0.04)' : done ? 'rgba(255,255,255,0.02)' : 'transparent'
                                             }}>
                                                 {/* Day header */}
                                                 <div onClick={() => setExpandedDays(prev => ({ ...prev, [dayKey]: !prev[dayKey] }))}
@@ -473,7 +473,7 @@ export default function StudyPlanPage() {
                                                             );
                                                         })}
                                                         {day.tip && (
-                                                            <div style={{ fontSize: '0.8rem', color: '#aaa', padding: '8px 12px', background: 'rgba(251,191,36,0.06)', borderRadius: 8 }}>
+                                                            <div style={{ fontSize: '0.8rem', color: '#aaa', padding: '8px 12px', background: 'rgba(255,255,255,0.03)', borderRadius: 8 }}>
                                                                 💡 <strong>Tip:</strong> {day.tip}
                                                             </div>
                                                         )}
