@@ -65,8 +65,8 @@ export default function Dashboard() {
     }));
 
     const scoreCards = [
-        { label: 'Resume Score', value: stats?.resumeScore || 0, icon: <HiDocumentText />, color: '#a855f7', link: '/resume' },
-        { label: 'Coding Score', value: stats?.codingScore || 0, icon: <HiCode />, color: '#ec4899', link: '/coding' },
+        { label: 'Resume Score', value: stats?.resumeScore || 0, icon: <HiDocumentText />, color: '#aaa', link: '/resume' },
+        { label: 'Coding Score', value: stats?.codingScore || 0, icon: <HiCode />, color: '#777', link: '/coding' },
         { label: 'Communication', value: stats?.communicationScore || 0, icon: <HiMicrophone />, color: '#22d3ee', link: '/voice' },
         { label: 'Overall Score', value: stats?.overallScore || 0, icon: <HiLightningBolt />, color: '#fbbf24', link: '#' },
     ];
@@ -128,7 +128,7 @@ export default function Dashboard() {
                                 <XAxis dataKey="name" tick={{ fill: 'var(--text-secondary)', fontSize: 11 }} />
                                 <YAxis domain={[0, 100]} tick={{ fill: 'var(--text-secondary)', fontSize: 11 }} />
                                 <Tooltip contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8 }} />
-                                <Line type="monotone" dataKey="score" stroke="#ec4899" strokeWidth={2} dot={{ fill: '#ec4899' }} />
+                                <Line type="monotone" dataKey="score" stroke="#ec4899" strokeWidth={2} dot={{ fill: '#777' }} />
                             </LineChart>
                         </ResponsiveContainer>
                     ) : (
@@ -181,7 +181,7 @@ export default function Dashboard() {
                                     <span style={{
                                         padding: '2px 8px', borderRadius: 6, fontSize: '0.7rem', fontWeight: 600, flexShrink: 0,
                                         background: item.priority === 'high' ? 'rgba(239,68,68,0.15)' : item.priority === 'medium' ? 'rgba(245,158,11,0.15)' : 'rgba(16,185,129,0.15)',
-                                        color: item.priority === 'high' ? '#ef4444' : item.priority === 'medium' ? '#f59e0b' : '#10b981'
+                                        color: item.priority === 'high' ? '#ef4444' : item.priority === 'medium' ? '#f59e0b' : '#999'
                                     }}>{item.priority}</span>
                                     <div>
                                         <p style={{ fontWeight: 600, fontSize: '0.9rem' }}>{item.area}</p>

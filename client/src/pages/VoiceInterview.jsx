@@ -200,22 +200,22 @@ export default function VoiceInterview() {
 
     const getScoreColor = (score, max = 10) => {
         const pct = (score / max) * 100;
-        if (pct >= 70) return '#22d3ee';
-        if (pct >= 40) return '#fbbf24';
+        if (pct >= 70) return '#888';
+        if (pct >= 40) return '#aaa';
         return '#f43f5e';
     };
 
     const getVerdictColor = (verdict) => {
-        if (verdict?.includes('Strong Hire')) return '#22d3ee';
-        if (verdict?.includes('Hire') && !verdict?.includes('No')) return '#22d3ee';
-        if (verdict?.includes('Lean Hire')) return '#fbbf24';
+        if (verdict?.includes('Strong Hire')) return '#888';
+        if (verdict?.includes('Hire') && !verdict?.includes('No')) return '#888';
+        if (verdict?.includes('Lean Hire')) return '#aaa';
         if (verdict?.includes('Lean No')) return '#f59e0b';
         return '#f43f5e';
     };
 
     const getQualityIcon = (quality) => {
-        if (quality === 'strong') return <HiCheckCircle style={{ color: '#22d3ee' }} />;
-        if (quality === 'adequate') return <HiCheckCircle style={{ color: '#fbbf24' }} />;
+        if (quality === 'strong') return <HiCheckCircle style={{ color: '#888' }} />;
+        if (quality === 'adequate') return <HiCheckCircle style={{ color: '#aaa' }} />;
         if (quality === 'weak') return <HiXCircle style={{ color: '#f59e0b' }} />;
         return <HiXCircle style={{ color: '#f43f5e' }} />;
     };
@@ -235,7 +235,7 @@ export default function VoiceInterview() {
                         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
                             <span style={{ fontSize: '1.5rem' }}>🤖</span>
                             <h3 style={{ fontSize: '1.15rem', fontWeight: 700 }}>Smart Mock Interview</h3>
-                            <span style={{ background: 'linear-gradient(135deg, var(--primary), var(--accent))', color: 'white', padding: '2px 10px', borderRadius: 999, fontSize: '0.7rem', fontWeight: 600 }}>AI-Powered</span>
+                            <span style={{ background: '#333', color: 'white', padding: '2px 10px', borderRadius: 999, fontSize: '0.7rem', fontWeight: 600 }}>AI-Powered</span>
                         </div>
                         <p style={{ color: 'var(--text-secondary)', marginBottom: 16, lineHeight: 1.6 }}>
                             An AI interviewer that asks follow-up questions when your answers are vague, probes weak areas, adjusts difficulty, and gives you a detailed scorecard at the end.
@@ -288,7 +288,7 @@ export default function VoiceInterview() {
                         </p>
 
                         {!supported && (
-                            <div style={{ background: 'rgba(251,191,36,0.1)', borderRadius: 10, padding: '10px 14px', marginBottom: 16, color: '#fbbf24', fontSize: '0.85rem' }}>
+                            <div style={{ background: 'rgba(251,191,36,0.1)', borderRadius: 10, padding: '10px 14px', marginBottom: 16, color: '#aaa', fontSize: '0.85rem' }}>
                                 ⚠️ Speech recognition not supported. Use Chrome or Edge.
                             </div>
                         )}
@@ -448,7 +448,7 @@ export default function VoiceInterview() {
                     <div style={{
                         height: '100%',
                         width: `${Math.min((chatMessages.filter(m => m.role === 'interviewer').length / totalQuestions) * 100, 100)}%`,
-                        background: 'linear-gradient(90deg, var(--primary), var(--accent))',
+                        background: '#444',
                         transition: 'width 0.5s ease',
                         borderRadius: 3
                     }} />
@@ -465,7 +465,7 @@ export default function VoiceInterview() {
                                 {msg.role === 'interviewer' && (
                                     <div style={{
                                         width: 32, height: 32, borderRadius: '50%', flexShrink: 0, marginTop: 4,
-                                        background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+                                        background: '#333',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                                         fontSize: 14, color: 'white'
                                     }}>🤖</div>
@@ -497,7 +497,7 @@ export default function VoiceInterview() {
                         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                             <div style={{
                                 width: 32, height: 32, borderRadius: '50%',
-                                background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+                                background: '#333',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 fontSize: 14, color: 'white'
                             }}>🤖</div>
@@ -622,10 +622,10 @@ export default function VoiceInterview() {
                 {/* Strengths & Weaknesses */}
                 <div className="eval-split" style={{ marginBottom: 24 }}>
                     <div className="glass-card">
-                        <h4 style={{ fontSize: '0.95rem', fontWeight: 600, marginBottom: 12, color: '#22d3ee' }}>💪 Strengths</h4>
+                        <h4 style={{ fontSize: '0.95rem', fontWeight: 600, marginBottom: 12, color: '#888' }}>💪 Strengths</h4>
                         {scorecard.strengths?.map((s, i) => (
                             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 0', fontSize: '0.85rem' }}>
-                                <span style={{ color: '#22d3ee' }}>✓</span> {s}
+                                <span style={{ color: '#888' }}>✓</span> {s}
                             </div>
                         ))}
                     </div>
@@ -661,7 +661,7 @@ export default function VoiceInterview() {
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                         {scorecard.topicsToStudy?.map((topic, i) => (
                             <span key={i} className="chip" style={{
-                                background: 'linear-gradient(135deg, rgba(168,85,247,0.15), rgba(236,72,153,0.15))',
+                                background: 'rgba(255,255,255,0.03)',
                                 borderColor: 'rgba(168,85,247,0.3)', color: 'var(--primary-light)', padding: '8px 16px'
                             }}>
                                 📖 {topic}

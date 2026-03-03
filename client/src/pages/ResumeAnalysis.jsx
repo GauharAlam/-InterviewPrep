@@ -58,7 +58,7 @@ export default function ResumeAnalysis() {
     };
 
     const getScoreColor = (score) => {
-        if (score >= 80) return '#10b981';
+        if (score >= 80) return '#999';
         if (score >= 60) return '#f59e0b';
         return '#ef4444';
     };
@@ -125,7 +125,7 @@ export default function ResumeAnalysis() {
                     {/* Strengths & Weaknesses */}
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
                         <div className="glass-card">
-                            <h3 style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '1rem', fontWeight: 600, marginBottom: 14, color: '#10b981' }}>
+                            <h3 style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: '1rem', fontWeight: 600, marginBottom: 14, color: '#999' }}>
                                 <HiCheckCircle /> Strengths
                             </h3>
                             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 8 }}>

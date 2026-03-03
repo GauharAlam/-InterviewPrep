@@ -5,9 +5,9 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import toast from 'react-hot-toast';
 
 const DIFFICULTY_COLORS = {
-    Easy: '#10b981',
-    Medium: '#f59e0b',
-    Hard: '#ef4444',
+    Easy: '#999',
+    Medium: '#999',
+    Hard: '#666',
 };
 
 const PLATFORM_STYLES = {

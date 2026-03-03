@@ -55,10 +55,10 @@ export default function Navbar({ theme, toggleTheme }) {
                 <Link to="/dashboard" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}>
                     <div style={{
                         width: 32, height: 32,
-                        background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+                        background: '#ffffff',
                         borderRadius: 8,
                         display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        fontSize: 14, fontWeight: 700, color: 'white'
+                        fontSize: 14, fontWeight: 700, color: '#0a0a0a'
                     }}>AI</div>
                     <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--text-primary)' }}>InterviewPrep</span>
                 </Link>
@@ -73,8 +73,8 @@ export default function Navbar({ theme, toggleTheme }) {
                             fontSize: '0.8rem',
                             fontWeight: 500,
                             whiteSpace: 'nowrap',
-                            color: location.pathname === link.path ? 'var(--primary-light)' : 'var(--text-secondary)',
-                            background: location.pathname === link.path ? 'rgba(99, 102, 241, 0.1)' : 'transparent',
+                            color: location.pathname === link.path ? '#ffffff' : 'var(--text-secondary)',
+                            background: location.pathname === link.path ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
                             transition: 'all 0.2s'
                         }}>
                             {link.label}

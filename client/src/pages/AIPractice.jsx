@@ -236,9 +236,9 @@ export default function AIPractice() {
     const avgClarity = results.length ? (results.reduce((s, r) => s + (r.clarity || 0), 0) / results.length).toFixed(1) : 0;
 
     const getScoreColor = (score) => {
-        if (score >= 8) return '#10b981';
+        if (score >= 8) return '#999';
         if (score >= 5) return '#f59e0b';
-        return '#ef4444';
+        return '#666';
     };
 
     // ═══════════════════════════════════════════════════════════
@@ -382,12 +382,12 @@ export default function AIPractice() {
                             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                                 <span style={{
                                     fontSize: '0.65rem', padding: '3px 10px', borderRadius: 6,
-                                    background: 'rgba(16,185,129,0.1)', color: '#10b981', fontWeight: 600
+                                    background: 'rgba(16,185,129,0.1)', color: '#999', fontWeight: 600
                                 }}>✓ {r.correctParts?.join(', ')}</span>
                                 {r.missingParts?.length > 0 && (
                                     <span style={{
                                         fontSize: '0.65rem', padding: '3px 10px', borderRadius: 6,
-                                        background: 'rgba(239,68,68,0.1)', color: '#ef4444', fontWeight: 600
+                                        background: 'rgba(239,68,68,0.1)', color: '#666', fontWeight: 600
                                     }}>✗ Missing: {r.missingParts?.join(', ')}</span>
                                 )}
                             </div>
@@ -428,7 +428,7 @@ export default function AIPractice() {
             <div style={{ height: 6, background: 'var(--bg-secondary)', borderRadius: 3, marginBottom: 24, overflow: 'hidden' }}>
                 <div style={{
                     height: '100%', borderRadius: 3,
-                    background: 'linear-gradient(90deg, var(--primary), var(--accent))',
+                    background: '#444',
                     width: `${(questionNumber / totalQuestions) * 100}%`,
                     transition: 'width 0.5s ease'
                 }} />
@@ -446,7 +446,7 @@ export default function AIPractice() {
                                 width: 48, height: 48, borderRadius: 14, flexShrink: 0,
                                 background: isSpeaking
                                     ? 'linear-gradient(135deg, #6366f1, #a855f7)'
-                                    : 'linear-gradient(135deg, var(--primary), var(--accent))',
+                                    : '#333',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 fontSize: 22, color: 'white',
                                 animation: isSpeaking ? 'pulse 1.5s ease-in-out infinite' : 'none',
@@ -513,8 +513,8 @@ export default function AIPractice() {
                                         width: 80, height: 80, borderRadius: '50%',
                                         border: 'none', cursor: 'pointer',
                                         background: isRecording
-                                            ? 'linear-gradient(135deg, #ef4444, #dc2626)'
-                                            : 'linear-gradient(135deg, var(--primary), var(--accent))',
+                                            ? '#555'
+                                            : '#333',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                                         fontSize: 28, color: 'white',
                                         animation: isRecording ? 'pulse 1s ease-in-out infinite' : 'none',
@@ -610,13 +610,13 @@ export default function AIPractice() {
                             {/* Correct & Missing */}
                             <div className="eval-split" style={{ marginBottom: 16 }}>
                                 <div style={{ padding: 12, borderRadius: 10, background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.15)' }}>
-                                    <p style={{ fontSize: '0.7rem', fontWeight: 600, color: '#10b981', marginBottom: 6 }}>✓ What you got right:</p>
+                                    <p style={{ fontSize: '0.7rem', fontWeight: 600, color: '#999', marginBottom: 6 }}>✓ What you got right:</p>
                                     {evaluation.correctParts?.map((p, i) => (
                                         <p key={i} style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: 2 }}>• {p}</p>
                                     ))}
                                 </div>
                                 <div style={{ padding: 12, borderRadius: 10, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.15)' }}>
-                                    <p style={{ fontSize: '0.7rem', fontWeight: 600, color: '#ef4444', marginBottom: 6 }}>✗ What you missed:</p>
+                                    <p style={{ fontSize: '0.7rem', fontWeight: 600, color: '#666', marginBottom: 6 }}>✗ What you missed:</p>
                                     {evaluation.missingParts?.map((p, i) => (
                                         <p key={i} style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: 2 }}>• {p}</p>
                                     ))}

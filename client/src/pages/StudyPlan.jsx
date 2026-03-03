@@ -27,8 +27,8 @@ const TASK_COLORS = {
     theory: { bg: 'rgba(168,85,247,0.12)', border: 'rgba(168,85,247,0.3)', color: '#a855f7', icon: '📖' },
     practice: { bg: 'rgba(34,211,238,0.12)', border: 'rgba(34,211,238,0.3)', color: '#22d3ee', icon: '💻' },
     project: { bg: 'rgba(236,72,153,0.12)', border: 'rgba(236,72,153,0.3)', color: '#ec4899', icon: '🛠️' },
-    mock: { bg: 'rgba(251,191,36,0.12)', border: 'rgba(251,191,36,0.3)', color: '#fbbf24', icon: '🎤' },
-    revision: { bg: 'rgba(34,197,94,0.12)', border: 'rgba(34,197,94,0.3)', color: '#22c55e', icon: '🔄' },
+    mock: { bg: 'rgba(251,191,36,0.12)', border: 'rgba(251,191,36,0.3)', color: '#aaa', icon: '🎤' },
+    revision: { bg: 'rgba(34,197,94,0.12)', border: 'rgba(34,197,94,0.3)', color: '#666', icon: '🔄' },
 };
 
 export default function StudyPlanPage() {
@@ -190,7 +190,7 @@ export default function StudyPlanPage() {
                                             <div style={{
                                                 height: '100%', borderRadius: 3,
                                                 width: `${pct}%`,
-                                                background: pct === 100 ? '#22c55e' : 'linear-gradient(90deg, var(--primary), var(--accent))',
+                                                background: pct === 100 ? '#666' : '#444',
                                                 transition: 'width 0.3s'
                                             }} />
                                         </div>
@@ -335,7 +335,7 @@ export default function StudyPlanPage() {
                         <div style={{
                             height: '100%', borderRadius: 4,
                             width: `${progressPct}%`,
-                            background: progressPct === 100 ? '#22c55e' : 'linear-gradient(90deg, var(--primary), var(--accent))',
+                            background: progressPct === 100 ? '#666' : '#444',
                             transition: 'width 0.5s'
                         }} />
                     </div>
@@ -344,7 +344,7 @@ export default function StudyPlanPage() {
                 {/* Company Tips */}
                 {plan?.companyTips?.length > 0 && (
                     <div className="glass-card" style={{ marginBottom: 20, background: 'rgba(251,191,36,0.06)', borderColor: 'rgba(251,191,36,0.2)' }}>
-                        <h3 style={{ fontSize: '0.95rem', fontWeight: 600, marginBottom: 10, color: '#fbbf24' }}>
+                        <h3 style={{ fontSize: '0.95rem', fontWeight: 600, marginBottom: 10, color: '#aaa' }}>
                             <HiLightBulb style={{ display: 'inline', verticalAlign: 'middle', marginRight: 6 }} />
                             Company Tips — {activePlan.targetCompany}
                         </h3>
@@ -371,7 +371,7 @@ export default function StudyPlanPage() {
                                         border: `1px solid ${reached ? 'rgba(34,197,94,0.3)' : 'var(--border)'}`,
                                         opacity: reached ? 1 : 0.7
                                     }}>
-                                        <span style={{ fontWeight: 600, color: reached ? '#22c55e' : 'var(--text-primary)' }}>
+                                        <span style={{ fontWeight: 600, color: reached ? '#666' : 'var(--text-primary)' }}>
                                             {reached ? '✅' : '⬜'} Day {m.day}:
                                         </span>{' '}
                                         <span style={{ color: 'var(--text-secondary)' }}>{m.title}</span>
@@ -429,8 +429,8 @@ export default function StudyPlanPage() {
                                                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                                                         <button onClick={(e) => { e.stopPropagation(); toggleDay(dayKey); }}
                                                             style={{
-                                                                width: 22, height: 22, borderRadius: 6, border: `2px solid ${done ? '#22c55e' : 'var(--border)'}`,
-                                                                background: done ? '#22c55e' : 'transparent', cursor: 'pointer',
+                                                                width: 22, height: 22, borderRadius: 6, border: `2px solid ${done ? '#666' : 'var(--border)'}`,
+                                                                background: done ? '#666' : 'transparent', cursor: 'pointer',
                                                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                                                 color: 'white', fontSize: 12, flexShrink: 0
                                                             }}>
@@ -473,7 +473,7 @@ export default function StudyPlanPage() {
                                                             );
                                                         })}
                                                         {day.tip && (
-                                                            <div style={{ fontSize: '0.8rem', color: '#fbbf24', padding: '8px 12px', background: 'rgba(251,191,36,0.06)', borderRadius: 8 }}>
+                                                            <div style={{ fontSize: '0.8rem', color: '#aaa', padding: '8px 12px', background: 'rgba(251,191,36,0.06)', borderRadius: 8 }}>
                                                                 💡 <strong>Tip:</strong> {day.tip}
                                                             </div>
                                                         )}

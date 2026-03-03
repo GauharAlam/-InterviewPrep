@@ -58,7 +58,7 @@ export default function CompanyDetail() {
                 {company.logoUrl ? (
                     <img src={company.logoUrl} alt={company.name} style={{ width: 80, height: 80, objectFit: 'contain', background: 'white', borderRadius: 16, padding: 8 }} />
                 ) : (
-                    <div style={{ width: 80, height: 80, borderRadius: 16, background: 'linear-gradient(135deg, var(--primary), var(--accent))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', fontWeight: 800, color: 'white' }}>
+                    <div style={{ width: 80, height: 80, borderRadius: 16, background: '#333', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', fontWeight: 800, color: 'white' }}>
                         {company.name.charAt(0).toUpperCase()}
                     </div>
                 )}

@@ -118,7 +118,7 @@ export default function AdminDashboard() {
                                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                                         <div style={{
                                             width: 32, height: 32, borderRadius: '50%',
-                                            background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+                                            background: '#333',
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             fontSize: 12, fontWeight: 700, color: 'white'
                                         }}>{u.name?.charAt(0)}</div>
@@ -154,7 +154,7 @@ export default function AdminDashboard() {
                                 <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                                     <div style={{
                                         width: 38, height: 38, borderRadius: '50%',
-                                        background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+                                        background: '#333',
                                         display: 'flex', alignItems: 'center', justifyContent: 'center',
                                         fontSize: 14, fontWeight: 700, color: 'white'
                                     }}>{u.name?.charAt(0)}</div>

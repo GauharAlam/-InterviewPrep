@@ -49,7 +49,7 @@ export default function Signup() {
                 <div style={{ textAlign: 'center', marginBottom: 32 }}>
                     <div style={{
                         width: 56, height: 56, margin: '0 auto 16px',
-                        background: 'linear-gradient(135deg, var(--accent), var(--primary))',
+                        background: '#333',
                         borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center',
                         fontSize: 24, fontWeight: 700, color: 'white'
                     }}>AI</div>

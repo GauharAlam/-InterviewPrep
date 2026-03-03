@@ -118,7 +118,7 @@ export default function CompanyPrep() {
                     {/* Header */}
                     <div className="glass-card" style={{ marginBottom: 24, padding: '32px 24px', display: 'flex', gap: 24, alignItems: 'flex-start', flexWrap: 'wrap' }}>
                         <div style={{
-                            width: 80, height: 80, borderRadius: 20, background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+                            width: 80, height: 80, borderRadius: 20, background: '#333',
                             display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.5rem', fontWeight: 800, color: 'white'
                         }}>
                             {profile.company.charAt(0).toUpperCase()}

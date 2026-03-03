@@ -5,9 +5,9 @@ import { HiLightningBolt, HiFire, HiStar, HiTrendingUp } from 'react-icons/hi';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 const RANK_STYLES = {
-    1: { bg: 'linear-gradient(135deg, rgba(251,191,36,0.15), rgba(245,158,11,0.1))', border: 'rgba(251,191,36,0.4)', medal: '🥇' },
-    2: { bg: 'linear-gradient(135deg, rgba(192,192,192,0.12), rgba(156,163,175,0.08))', border: 'rgba(192,192,192,0.35)', medal: '🥈' },
-    3: { bg: 'linear-gradient(135deg, rgba(205,127,50,0.12), rgba(180,83,9,0.08))', border: 'rgba(205,127,50,0.35)', medal: '🥉' },
+    1: { bg: 'rgba(255,255,255,0.04)', border: '#444', medal: '🥇' },
+    2: { bg: 'rgba(255,255,255,0.03)', border: '#383838', medal: '🥈' },
+    3: { bg: 'rgba(255,255,255,0.02)', border: '#333', medal: '🥉' },
 };
 
 const LEVEL_TITLES = [
@@ -68,14 +68,14 @@ export default function Leaderboard() {
             {myStats && (
                 <div className="glass-card" style={{
                     marginBottom: 24, padding: '24px 28px',
-                    background: 'linear-gradient(135deg, rgba(168,85,247,0.1), rgba(236,72,153,0.08))',
-                    borderColor: 'rgba(168,85,247,0.3)'
+                    background: 'rgba(255,255,255,0.03)',
+                    borderColor: '#2a2a2a'
                 }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
                             <div style={{
                                 width: 56, height: 56, borderRadius: '50%',
-                                background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+                                background: '#333',
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 fontSize: 22, fontWeight: 700, color: 'white'
                             }}>{user?.name?.charAt(0)}</div>
@@ -83,7 +83,7 @@ export default function Leaderboard() {
                                 <p style={{ fontWeight: 700, fontSize: '1.1rem' }}>{user?.name}</p>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 2 }}>
                                     <span style={{
-                                        background: 'linear-gradient(135deg, var(--primary), var(--accent))',
+                                        background: '#333',
                                         color: 'white', padding: '2px 10px', borderRadius: 999, fontSize: '0.7rem', fontWeight: 600
                                     }}>Lv.{myStats.level} {levelTitle}</span>
                                     {myRank > 0 && <span style={{ color: 'var(--text-secondary)', fontSize: '0.8rem' }}>Rank #{myRank}</span>}
@@ -93,21 +93,21 @@ export default function Leaderboard() {
 
                         <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap' }}>
                             <div style={{ textAlign: 'center' }}>
-                                <p style={{ fontSize: '1.5rem', fontWeight: 700, color: '#a855f7' }}>{myStats.xp}</p>
+                                <p style={{ fontSize: '1.5rem', fontWeight: 700, color: '#fff' }}>{myStats.xp}</p>
                                 <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: 500 }}>Total XP</p>
                             </div>
                             <div style={{ textAlign: 'center' }}>
-                                <p style={{ fontSize: '1.5rem', fontWeight: 700, color: myStats.streak > 0 ? '#fbbf24' : 'var(--text-secondary)' }}>
+                                <p style={{ fontSize: '1.5rem', fontWeight: 700, color: myStats.streak > 0 ? '#ccc' : 'var(--text-secondary)' }}>
                                     {myStats.streak} 🔥
                                 </p>
                                 <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: 500 }}>Day Streak</p>
                             </div>
                             <div style={{ textAlign: 'center' }}>
-                                <p style={{ fontSize: '1.5rem', fontWeight: 700, color: '#22d3ee' }}>{myStats.badges?.length || 0}</p>
+                                <p style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ddd' }}>{myStats.badges?.length || 0}</p>
                                 <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: 500 }}>Badges</p>
                             </div>
                             <div style={{ textAlign: 'center' }}>
-                                <p style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ec4899' }}>{myStats.avgScore}</p>
+                                <p style={{ fontSize: '1.5rem', fontWeight: 700, color: '#bbb' }}>{myStats.avgScore}</p>
                                 <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: 500 }}>Avg Score</p>
                             </div>
                         </div>
@@ -123,7 +123,7 @@ export default function Leaderboard() {
                             <div style={{
                                 height: '100%', borderRadius: 3,
                                 width: `${(myStats.xpInLevel / myStats.xpToNext) * 100}%`,
-                                background: 'linear-gradient(90deg, var(--primary), var(--accent))',
+                                background: '#444',
                                 transition: 'width 0.5s ease'
                             }} />
                         </div>
@@ -160,8 +160,8 @@ export default function Leaderboard() {
                                 <div key={entry._id} className="glass-card" style={{
                                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                                     padding: '14px 20px',
-                                    background: isMe ? 'linear-gradient(135deg, rgba(168,85,247,0.1), rgba(236,72,153,0.06))' : rankStyle.bg || undefined,
-                                    borderColor: isMe ? 'rgba(168,85,247,0.4)' : rankStyle.border || undefined,
+                                    background: isMe ? 'rgba(255,255,255,0.03)' : rankStyle.bg || undefined,
+                                    borderColor: isMe ? '#444' : rankStyle.border || undefined,
                                 }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                                         {/* Rank */}
@@ -179,7 +179,7 @@ export default function Leaderboard() {
                                         {/* Avatar */}
                                         <div style={{
                                             width: 40, height: 40, borderRadius: '50%',
-                                            background: isMe ? 'linear-gradient(135deg, var(--primary), var(--accent))' : 'var(--bg-primary)',
+                                            background: isMe ? '#333' : 'var(--bg-primary)',
                                             border: `2px solid ${isMe ? 'var(--primary)' : 'var(--border)'}`,
                                             display: 'flex', alignItems: 'center', justifyContent: 'center',
                                             fontSize: 16, fontWeight: 700, color: isMe ? 'white' : 'var(--text-primary)'
@@ -195,7 +195,7 @@ export default function Leaderboard() {
                                                     Lv.{entry.level} • {entry.totalActivities} activities
                                                 </span>
                                                 {entry.streak > 0 && (
-                                                    <span style={{ fontSize: '0.7rem', color: '#fbbf24' }}>🔥 {entry.streak}d</span>
+                                                    <span style={{ fontSize: '0.7rem', color: '#aaa' }}>🔥 {entry.streak}d</span>
                                                 )}
                                                 {entry.badges?.slice(0, 3).map((b, i) => (
                                                     <span key={i} style={{ fontSize: '0.8rem' }} title={b.name}>{b.icon}</span>
@@ -209,7 +209,7 @@ export default function Leaderboard() {
                                         <div style={{ textAlign: 'right', display: 'none' }}>
                                         </div>
                                         <div style={{ textAlign: 'right' }}>
-                                            <p style={{ fontSize: '1.3rem', fontWeight: 700, color: '#a855f7' }}>{entry.xp}</p>
+                                            <p style={{ fontSize: '1.3rem', fontWeight: 700, color: '#fff' }}>{entry.xp}</p>
                                             <p style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', fontWeight: 500 }}>XP</p>
                                         </div>
                                     </div>
@@ -234,7 +234,7 @@ export default function Leaderboard() {
                                     textAlign: 'center', padding: '20px 16px',
                                     opacity: unlocked ? 1 : 0.4,
                                     filter: unlocked ? 'none' : 'grayscale(100%)',
-                                    borderColor: unlocked ? 'rgba(168,85,247,0.3)' : undefined
+                                    borderColor: unlocked ? '#444' : undefined
                                 }}>
                                     <div style={{ fontSize: '2.2rem', marginBottom: 8 }}>{badge.icon}</div>
                                     <p style={{ fontWeight: 700, fontSize: '0.9rem', marginBottom: 4 }}>{badge.name}</p>
@@ -242,7 +242,7 @@ export default function Leaderboard() {
                                     {unlocked && (
                                         <div style={{
                                             marginTop: 8, fontSize: '0.65rem', fontWeight: 600,
-                                            color: '#22d3ee', textTransform: 'uppercase', letterSpacing: 1
+                                            color: '#aaa', textTransform: 'uppercase', letterSpacing: 1
                                         }}>✓ Unlocked</div>
                                     )}
                                 </div>
