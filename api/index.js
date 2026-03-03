@@ -1,11 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const dotenv = require('dotenv');
-const path = require('path');
-
-dotenv.config({ path: path.resolve(__dirname, '../server/.env') });
-
 const connectDB = require('../server/config/db');
 
 const app = express();
@@ -15,7 +10,7 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+    origin: process.env.CORS_ORIGIN || '*',
     credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
